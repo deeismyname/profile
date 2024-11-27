@@ -45,7 +45,7 @@ body {
 
 #portfolio {
     position: relative;
-    background: url('../../images/workshop2.jpg') no-repeat center center/cover;
+    background: url('../../images/workshop.jpg') no-repeat center center/cover;
     min-height: 90vh;
     display: flex;
     align-items: center;
@@ -271,3 +271,69 @@ footer {
   }
   
   
+
+
+  @media (max-width: 768px) {
+    /* General Styling */
+    body {
+        font-size: 90%; /* Reduce overall font size */
+    }
+
+    /* Hero Section */
+    .hero p {
+        font-size: large; /* Reduce font size for hero text */
+    }
+
+    /* Portfolio Section */
+    #portfolio h2 {
+        font-size: 2rem; /* Adjust heading size */
+    }
+
+    #portfolio .card-body p {
+        font-size: small; /* Smaller card body text */
+    }
+
+    /* Section Text */
+    section h2 {
+        font-size: 2rem; /* Adjust section headings */
+    }
+
+    section p {
+        font-size: 0.9rem; /* Reduce paragraph font size */
+    }
+
+    section .content {
+        width: 80vw; /* Adjust width for smaller screens */
+        font-size: large; /* Slightly reduce content font size */
+    }
+
+    /* Profile Image */
+    .profile-image {
+        width: 100px; /* Reduce profile image size */
+        height: 100px;
+    }
+
+    /* Footer */
+    footer {
+        font-size: 0.8rem; /* Smaller footer text */
+    }
+
+    /* Message Section */
+    .message-section .section-title {
+        font-size: 1.5rem; /* Adjust title size */
+    }
+
+    .message-section label,
+    .message-section .form-input {
+        font-size: 0.9rem; /* Adjust input and label font sizes */
+    }
+
+    .message-section .btn-submit {
+        font-size: 0.9rem; /* Smaller button font size */
+        padding: 8px 15px; /* Adjust padding for smaller screens */
+    }
+
+    .contact-info p {
+        font-size: small; /* Reduce font size for contact info */
+    }
+}
