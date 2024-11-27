@@ -307,11 +307,6 @@ footer {
         font-size: large; /* Slightly reduce content font size */
     }
 
-    /* Profile Image */
-    .profile-image {
-        width: 100px; /* Reduce profile image size */
-        height: 100px;
-    }
 
     /* Footer */
     footer {
