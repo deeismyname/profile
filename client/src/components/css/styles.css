@@ -45,7 +45,7 @@ body {
 
 #portfolio {
     position: relative;
-    background: url('../../images/workshop.jpg') no-repeat center center/cover;
+    background: url('../../images/workshop2.jpg') no-repeat center center/cover;
     min-height: 90vh;
     display: flex;
     align-items: center;
