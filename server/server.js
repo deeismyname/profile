@@ -23,6 +23,9 @@ connectDB(); // Connect to MongoDB
 const projectRoutes = require('./routes/projects');
 app.use('/api/projects', projectRoutes); // Use routes for /api/projects
 
+const messageRoutes = require('./routes/messages');
+app.use('/api/messages', messageRoutes); // Use routes for /api/projects
+
 // Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
