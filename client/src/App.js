@@ -1,8 +1,9 @@
-import { HashRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import AdminPage from './pages/AdminPage';
 import ProjectPage from "./pages/ProjectPage";
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
   return (
