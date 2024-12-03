@@ -66,7 +66,7 @@ body {
 }
 
 .card-body  p {
-    color: antiquewhite;
+    color: rgb(7, 7, 7);
 }
 
 #portfolio .card:hover {
@@ -75,15 +75,15 @@ body {
 }
 
 #portfolio .btn {
-    border: 2px solid white;
+    border: 2px solid rgb(7, 7, 7);
     background: none;
-    color: white;
+    color: rgb(10, 10, 10);
     transition: all 0.3s ease;
 }
 
 #portfolio .btn:hover {
-    background: white;
-    color: black;
+    background: rgb(5, 5, 5);
+    color: hsl(0, 50%, 99%);
 }
 
 
@@ -95,6 +95,35 @@ body {
     object-fit: cover;
     border: 3px solid white;
 }
+
+/* new card css */
+/* Adjusting the card elements */
+.custom-card-body {
+  background-color: #f8f9fa; /* Light gray background for card body */
+  color: black; /* Text color set to black */
+  font-size: 0.875rem; /* Reduced font size */
+  padding: 1.25rem; /* Slight padding for better spacing */
+}
+
+.custom-card-title {
+  font-size: 1.25rem; /* Reduced size for the card title */
+}
+
+.custom-card-text {
+  font-size: 0.875rem; /* Reduced size for the card description text */
+}
+
+/* Optional: Reduce font size on smaller screens */
+@media (max-width: 768px) {
+  .custom-card-title {
+    font-size: 1.125rem; /* Slightly smaller title on smaller screens */
+  }
+
+  .custom-card-text {
+    font-size: 0.8rem; /* Slightly smaller text on smaller screens */
+  }
+}
+
 
 /* Footer Styling */
 footer {

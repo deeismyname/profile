@@ -47,7 +47,7 @@ const MessageForm = () => {
   };
 
   return (
-    <section className="message-section">
+    <section id="contact" className="message-section">
       <div className="container">
         <div className="row">
           <div className="col-sm-12 col-md-4 contact-info">
