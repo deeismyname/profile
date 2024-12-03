@@ -76,12 +76,24 @@ if (!fs.existsSync(uploadDir)) {
 }
 
 // Setup file storage engine for multer
+// const storage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, uploadDir); // Use the uploads folder
+//   },
+//   filename: (req, file, cb) => {
+//     cb(null, Date.now() + path.extname(file.originalname)); // File naming convention
+//   },
+// });
+
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, uploadDir); // Use the uploads folder
   },
   filename: (req, file, cb) => {
-    cb(null, Date.now() + path.extname(file.originalname)); // File naming convention
+    const extname = path.extname(file.originalname); // Get the file extension
+    const basename = path.basename(file.originalname, extname); // Get the original file name without the extension
+    const timestamp = Date.now(); // Get the current timestamp
+    cb(null, `${basename}-${timestamp}${extname}`); // Append the timestamp to the original name
   },
 });
 
