@@ -23,6 +23,12 @@ const ProjectPage = () => {
     setSelectedImage(null);
   };
 
+  function stripString(input) {
+    // Regex to remove "/uploads/" from the start and "-randomnumber.extension" from the end
+    const regex = /^\/uploads\/|-\d+\.[a-z]+$/g;
+    return input.replace(regex, '');
+  }
+
   return (
     <div>
       <Header />
@@ -126,7 +132,7 @@ const ProjectPage = () => {
                   style={{ maxHeight: "300px", objectFit: "cover" }}
                 />
                 <div className="card-body">
-                  <h5 className="card-title text-center">Main Project Image</h5>
+                  <h5 className="card-title text-center">{stripString(project.image)}</h5>
                 </div>
               </div>
             </div>
@@ -142,7 +148,7 @@ const ProjectPage = () => {
                     style={{ maxHeight: "300px", objectFit: "cover" }}
                   />
                   <div className="card-body">
-                    <h5 className="card-title text-center">{`Image ${index + 1}`}</h5>
+                    <h5 className="card-title text-center">{stripString(img)}</h5>
                   </div>
                 </div>
               </div>

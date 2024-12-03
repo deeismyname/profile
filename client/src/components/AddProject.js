@@ -14,7 +14,7 @@ const AddProject = () => {
   // Fetch all projects from the /projects route
   useEffect(() => {
     axios
-      .get('/projects') // Adjust the API endpoint as necessary
+      .get('http://localhost:5000/api/projects') // Adjust the API endpoint as necessary
       .then((res) => {
         setProjects(res.data);
       })
@@ -64,6 +64,7 @@ const AddProject = () => {
     <div className="container py-4" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100vh' }}>
       {/* Projects Table */}
       {Array.isArray(projects) && projects.length > 0 ? (
+        // {console.log(projects);}
         <div className="mb-4">
           <h2 className="text-center mb-4">All Projects</h2>
           <table className="table table-striped">

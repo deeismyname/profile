@@ -127,6 +127,7 @@ const Portfolio = () => {
     const fetchProjects = async () => {
       try {
         const response = await axios.get("http://localhost:5000/api/projects");
+        console.log(response.data);
         setProjects(response.data);
         setLoading(false);
       } catch (error) {
