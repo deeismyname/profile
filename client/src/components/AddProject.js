@@ -62,140 +62,141 @@ const AddProject = () => {
 
   return (
     <div className="container py-4" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100vh' }}>
-  {/* Projects Table */}
-  {projects.length > 0 ? (
-    <div className="mb-4">
-      <h2 className="text-center mb-4">All Projects</h2>
-      <table className="table table-striped">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          {projects.map((project) => (
-            <tr key={project.id}>
-              <td>{project.id}</td>
-              <td>{project.title}</td>
-              <td>{project.description.substring(0, 50)}...</td> {/* Show first 50 characters */}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  ) : (
-    <div className="alert alert-info" role="alert">
-      No projects available. Please add a project to get started.
-    </div>
-  )}
-
-  {/* Add New Project Form */}
-  <div className="card shadow-lg" style={{ maxWidth: '50vw', width: '100%' }}>
-    <div className="card-body">
-      <h2 className="text-center mb-4">Add New Project</h2>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          addProject();
-        }}
-      >
-        <div className="mb-3">
-          <label htmlFor="title" className="form-label">
-            Title
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="title"
-            placeholder="Enter project title"
-            value={newProject.title}
-            onChange={(e) =>
-              setNewProject({ ...newProject, title: e.target.value })
-            }
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="description" className="form-label">
-            Description
-          </label>
-          <textarea
-            className="form-control"
-            id="description"
-            placeholder="Enter project description"
-            value={newProject.description}
-            onChange={(e) =>
-              setNewProject({
-                ...newProject,
-                description: e.target.value,
-              })
-            }
-            rows="3"
-          ></textarea>
-        </div>
-        <div className="mb-3">
-          <label htmlFor="image" className="form-label">
-            Main Image
-          </label>
-          <input
-            type="file"
-            className="form-control"
-            id="image"
-            onChange={(e) => setMainImage(e.target.files[0])}
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="images" className="form-label">
-            Additional Images
-          </label>
-          <input
-            type="file"
-            className="form-control"
-            id="images"
-            multiple
-            onChange={handleAddImages}
-          />
-          <button
-            type="button"
-            className="btn btn-secondary mt-2"
-            onClick={() => document.getElementById('images').click()} // Trigger the file input when the button is clicked
-          >
-            Add More Images
-          </button>
-          {/* Display selected images */}
-          <div className="mt-2">
-            <ul>
-              {imagesArray.map((image, index) => (
-                <li key={index}>{image.name}</li>
+      {/* Projects Table */}
+      {Array.isArray(projects) && projects.length > 0 ? (
+        <div className="mb-4">
+          <h2 className="text-center mb-4">All Projects</h2>
+          <table className="table table-striped">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              {projects.map((project) => (
+                <tr key={project.id}>
+                  <td>{project.id}</td>
+                  <td>{project.title}</td>
+                  <td>{project.description.substring(0, 50)}...</td> {/* Show first 50 characters */}
+                </tr>
               ))}
-            </ul>
-          </div>
+            </tbody>
+          </table>
         </div>
-        <div className="mb-3">
-          <label htmlFor="link" className="form-label">
-            Link
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="link"
-            placeholder="Enter project link"
-            value={newProject.link}
-            onChange={(e) =>
-              setNewProject({ ...newProject, link: e.target.value })
-            }
-          />
+      ) : (
+        <div className="alert alert-info" role="alert">
+          No projects available. Please add a project to get started.
         </div>
-        <div className="d-grid">
-          <button type="submit" className="btn btn-primary">
-            Add Project
-          </button>
+      )}
+
+
+      {/* Add New Project Form */}
+      <div className="card shadow-lg" style={{ maxWidth: '50vw', width: '100%' }}>
+        <div className="card-body">
+          <h2 className="text-center mb-4">Add New Project</h2>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              addProject();
+            }}
+          >
+            <div className="mb-3">
+              <label htmlFor="title" className="form-label">
+                Title
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                id="title"
+                placeholder="Enter project title"
+                value={newProject.title}
+                onChange={(e) =>
+                  setNewProject({ ...newProject, title: e.target.value })
+                }
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="description" className="form-label">
+                Description
+              </label>
+              <textarea
+                className="form-control"
+                id="description"
+                placeholder="Enter project description"
+                value={newProject.description}
+                onChange={(e) =>
+                  setNewProject({
+                    ...newProject,
+                    description: e.target.value,
+                  })
+                }
+                rows="3"
+              ></textarea>
+            </div>
+            <div className="mb-3">
+              <label htmlFor="image" className="form-label">
+                Main Image
+              </label>
+              <input
+                type="file"
+                className="form-control"
+                id="image"
+                onChange={(e) => setMainImage(e.target.files[0])}
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="images" className="form-label">
+                Additional Images
+              </label>
+              <input
+                type="file"
+                className="form-control"
+                id="images"
+                multiple
+                onChange={handleAddImages}
+              />
+              <button
+                type="button"
+                className="btn btn-secondary mt-2"
+                onClick={() => document.getElementById('images').click()} // Trigger the file input when the button is clicked
+              >
+                Add More Images
+              </button>
+              {/* Display selected images */}
+              <div className="mt-2">
+                <ul>
+                  {imagesArray.map((image, index) => (
+                    <li key={index}>{image.name}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            <div className="mb-3">
+              <label htmlFor="link" className="form-label">
+                Link
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                id="link"
+                placeholder="Enter project link"
+                value={newProject.link}
+                onChange={(e) =>
+                  setNewProject({ ...newProject, link: e.target.value })
+                }
+              />
+            </div>
+            <div className="d-grid">
+              <button type="submit" className="btn btn-primary">
+                Add Project
+              </button>
+            </div>
+          </form>
         </div>
-      </form>
+      </div>
     </div>
-  </div>
-</div>
 
   );
 };
