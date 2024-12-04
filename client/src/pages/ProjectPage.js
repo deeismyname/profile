@@ -155,7 +155,7 @@ const ProjectPage = () => {
 
       {/* Popup Modal */}
       {showPopup && (
-        <div className="popup-overlay" style={popupOverlayStyle}>
+        <div className="popup-overlay" style={popupOverlayStyle}>ear
           <div className="popup-content" style={popupContentStyle}>
             <img
               src={`${backendUrl}${selectedImage}`}
