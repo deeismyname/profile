@@ -25,6 +25,11 @@ const ProjectPage = () => {
     setSelectedImage(null);
   };
 
+  const getFileName = (imageUrl) => {
+    const match = imageUrl.match(/uploads\/(.*?)-\d+\.\w+$/);
+    return match ? match[1] : null; // Return the clean file name, or null if no match
+  };
+
   return (
     <div>
       <Header />
@@ -33,7 +38,7 @@ const ProjectPage = () => {
       <section
         className="project-hero position-relative"
         style={{
-          backgroundImage: `${backendUrl}${project.image})`,
+          backgroundImage: `url(${backendUrl}${project.image})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           color: "#fff",
@@ -84,7 +89,7 @@ const ProjectPage = () => {
             <div className="col-lg-4">
               <div className="card shadow">
                 <img
-                  src={`${backendUrl}${project.image})`}
+                  src={`${backendUrl}${project.image}`}
                   alt={project.title}
                   className="card-img-top"
                   style={{ maxHeight: "200px", objectFit: "cover" }}
@@ -144,7 +149,7 @@ const ProjectPage = () => {
                     style={{ maxHeight: "300px", objectFit: "cover" }}
                   />
                   <div className="card-body">
-                    <h5 className="card-title text-center">{`${backendUrl}${img}`}</h5>
+                    <h5 className="card-title text-center">{getFileName(img)}</h5>
                   </div>
                 </div>
               </div>
