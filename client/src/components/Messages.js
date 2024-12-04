@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
+
 const Messages = () => {
   const [messages, setMessages] = useState([]);
   const [currentPage, setCurrentPage] = useState(1); // Track the current page
@@ -9,7 +12,7 @@ const Messages = () => {
 
   useEffect(() => {
     axios
-      .get('/api/messages')
+      .get(`${backendUrl}/api/messages`)
       .then((res) => setMessages(Array.isArray(res.data) ? res.data : [])) // Ensure the data is an array
       .catch((err) => {
         console.error(err);

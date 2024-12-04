@@ -4,6 +4,8 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import "../components/css/styles.css";
 
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
 const ProjectPage = () => {
   const location = useLocation();
   const { project } = location.state; // Extract the project object
@@ -31,7 +33,7 @@ const ProjectPage = () => {
       <section
         className="project-hero position-relative"
         style={{
-          backgroundImage: `url('http://localhost:5000${project.image}')`,
+          backgroundImage: `${backendUrl}${project.image})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           color: "#fff",
@@ -82,7 +84,7 @@ const ProjectPage = () => {
             <div className="col-lg-4">
               <div className="card shadow">
                 <img
-                  src={`http://localhost:5000${project.image}`}
+                  src={`${backendUrl}${project.image})`}
                   alt={project.title}
                   className="card-img-top"
                   style={{ maxHeight: "200px", objectFit: "cover" }}
@@ -120,7 +122,7 @@ const ProjectPage = () => {
             <div className="col">
               <div className="card" onClick={() => openPopup(project.image)}>
                 <img
-                  src={`http://localhost:5000${project.image}`}
+                  src={`${backendUrl}${project.image}`}
                   alt="Main Project"
                   className="card-img-top"
                   style={{ maxHeight: "300px", objectFit: "cover" }}
@@ -136,13 +138,13 @@ const ProjectPage = () => {
               <div className="col" key={index}>
                 <div className="card" onClick={() => openPopup(img)}>
                   <img
-                    src={`http://localhost:5000${img}`}
+                    src={`${backendUrl}${img}`}
                     alt={`Project Image ${index + 1}`}
                     className="card-img-top"
                     style={{ maxHeight: "300px", objectFit: "cover" }}
                   />
                   <div className="card-body">
-                    <h5 className="card-title text-center">{`Image ${index + 1}`}</h5>
+                    <h5 className="card-title text-center">{`${backendUrl}${img}`}</h5>
                   </div>
                 </div>
               </div>
@@ -156,7 +158,7 @@ const ProjectPage = () => {
         <div className="popup-overlay" style={popupOverlayStyle}>
           <div className="popup-content" style={popupContentStyle}>
             <img
-              src={`http://localhost:5000${selectedImage}`}
+              src={`${backendUrl}${selectedImage}`}
               alt="Selected"
               style={{ width: "60vw", objectFit: "cover" }}
             />

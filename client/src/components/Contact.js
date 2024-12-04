@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios'; // Import axios
 
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
 const MessageForm = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -33,7 +35,7 @@ const MessageForm = () => {
     const formErrors = validateForm();
     if (Object.keys(formErrors).length === 0) {
       try {
-        const response = await axios.post('http://localhost:5000/api/messages', formData); // Update the URL to match your backend
+        const response = await axios.post(`${backendUrl}/api/messages`, formData); // Update the URL to match your backend
         console.log('Form submitted:', response.data);
         setStatus('Message sent successfully!');
         setFormData({ name: '', email: '', message: '' }); // Reset form

@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 const AddProject = () => {
+  // console.log("Backed URL", backendUrl);
   const [newProject, setNewProject] = useState({
     title: '',
     description: '',
@@ -14,7 +16,7 @@ const AddProject = () => {
   // Fetch all projects from the /projects route
   useEffect(() => {
     axios
-      .get('/projects') // Adjust the API endpoint as necessary
+      .get(`${backendUrl}/api/projects`) // Adjust the API endpoint as necessary
       .then((res) => {
         setProjects(res.data);
       })
@@ -40,7 +42,7 @@ const AddProject = () => {
 
     // Send the request to the server
     axios
-      .post('/api/projects', formData, {
+      .post(`${backendUrl}/api/projects`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
